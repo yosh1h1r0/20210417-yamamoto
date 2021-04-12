@@ -17,7 +17,7 @@ data() {
 methods: {
 async postcode() {
       const item = await axios.get(
-        `https://apis.postcode-jp.com/api/v4/postcodes/postcode?filterBg0aVQSV58OYBHMknWIp4oOExVs0XeZjd3I7EEx"`
+        `https://apis.postcode-jp.com/api/v4/postcodes/postcode?filterBg0aVQSV58OYBHMknWIp4oOExVs0XeZjd3I7EEx`
       );
       const zipcode = item.data;
       this.address = zipcode.address;
