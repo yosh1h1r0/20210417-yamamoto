@@ -1,8 +1,9 @@
-<template>
+
+  <template>
   <div id="app">
-   <input type="number" v-model="postcode" />
+   <input type="text" v-model="zipcode" />
      <button @click="postcode">検索</button>
-    <p >Address: {{ address }}</p>
+    <p >Address:{{ address }} </p>
   </div>
 </template>
 
@@ -11,21 +12,23 @@ import axios from 'axios';
 export default {
 data() {
   return {
-    address:""
+    zipcode:"",
+    address:''
   };
 },
 methods: {
-async postcode() {
-      const item = await axios.get(
-        `https://apis.postcode-jp.com/api/v4/postcodes/postcode?filterBg0aVQSV58OYBHMknWIp4oOExVs0XeZjd3I7EEx`
-      );
-      const zipcode = item.data;
-      this.address = zipcode.address;
-  }
+ postcode() {
+  axios.get(
+        `https://apis.postcode-jp.com/api/v4/postcodes/4150024?apiKey=rBg0aVQSV58OYBHMknWIp4oOExVs0XeZjd3I7EEx`
+        )
+    .then ((response) => {
+      this.address = response.data.allAddress;
+    });
+  },
+
 }
 };
 </script>
 
 <style>
-
 </style>
